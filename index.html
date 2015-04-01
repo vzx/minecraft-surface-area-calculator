@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Minecraft surface area calculator</title>
+	<style>
+	#contents {
+		width: 800px;
+		margin: 10px auto;
+	}
+
+	#prism {
+		float: left;
+		margin-right: 50px;
+	}
+	</style>
+</head>
+
+<body>
+	<div id="contents">
+		<h1>Minecraft surface area calculator</h1>
+
+		<p>Usually you can calculate the surface area of a rectangular prism with side a, b and c using the formula <code>2ab+2bc+2ac</code>:
+			<a href="http://www.math.com/tables/geometry/surfareas.htm#rec">http://www.math.com/tables/geometry/surfareas.htm#rec</a></p>
+
+		<p>However, in minecraft blocks can be part of two or three sides (in the case of a corner), which means that you need fewer blocks
+			to cover the surface of such a prism than the result this formula. The formula is: <code>2ab+2(bc-2b)+2(ac-2b-2c)</code>.<br>
+			You can derive this by taking the surface of each side, and subtracting the length of two sides, and the length and width of 2
+			other sides, as parts those sides are already covered by the other sides.</p>
+
+		<p><img id="prism" src="prism-quad3_43153_md.gif" alt="prism" height="150"></p>
+
+		<table>
+			<tbody>
+				<tr><td>Length:</td><td><input type="text" id="length"></td></tr>
+				<tr><td>Width:</td><td><input type="text" id="width"></td></tr>
+				<tr><td>Height:</td><td><input type="text" id="height"></td></tr>
+				<tr><td><input type="button" value="Calculate:" id="calculate"></td><td><input type="text" id="surface"></td></tr>
+			</tbody>
+		</table>
+
+		<p>In Excel, the formula, with the sides in A1, A2, and A3, is:<br><code>=2*A1*A2+2*(A2*A3-2*A2)+2*(A1*A3-2*A2-2*A3)</code></p>	
+	</div>
+
+	<script>
+	var $ = function(id) { return document.getElementById(id); }
+	$('calculate').onclick = function() {
+		var a = $('length').value;
+		var b = $('width').value;
+		var c = $('height').value;
+
+		var surface = 2*a*b+2*(b*c-2*b)+2*(a*c-2*b-2*c);
+
+		$('surface').value = surface;
+	}
+	</script>
+</body>
+</html>
