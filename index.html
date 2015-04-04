@@ -26,7 +26,7 @@
 		<p>However, in minecraft blocks can be part of two or three sides (in the case of a corner), which means that you need fewer blocks
 			to cover the surface of such a prism than the result this formula. The formula is: <code>2ab+2(bc-2b)+2(ac-2b-2c)</code>.<br>
 			You can derive this by taking the surface of each side, and subtracting the length of two sides, and the length and width of 2
-			other sides.</p>
+			other sides. Though beware that this does not work with sides of 1 or 2, in those cases it's just <code>a*b*c</code>.</p>
 
 		<p><img id="prism" src="prism-quad3_43153_md.gif" alt="prism" height="150"></p>
 
@@ -39,7 +39,9 @@
 			</tbody>
 		</table>
 
-		<p>In Excel, the formula, with the sides in A1, A2, and A3, is:<br><code>=2*A1*A2+2*(A2*A3-2*A2)+2*(A1*A3-2*A2-2*A3)</code></p>	
+		<p>In Excel, the formula, with the sides in A1, A2, and A3, is:<br><code>=2*A1*A2+2*(A2*A3-2*A2)+2*(A1*A3-2*A2-2*A3)</code><br>
+			<b>Note:</b> does <i>not</i> work with sides of 1 or 2, in that case it's just <code>=A1*A2*A3</code>.
+		</p>	
 		<div style="clear: both;"></div>
 		<p>Source code: <a href="https://github.com/vzx/minecraft-surface-area-calculator">https://github.com/vzx/minecraft-surface-area-calculator</a></p>
 	</div>
