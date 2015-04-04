@@ -48,8 +48,9 @@
 		var a = $('length').value;
 		var b = $('width').value;
 		var c = $('height').value;
-
-		var surface = 2*a*b+2*(b*c-2*b)+2*(a*c-2*b-2*c);
+		var surface;
+        	if (a <= 2 || b <= 2 || c <= 2) surface = a*b*c;
+		else surface = 2*a*b+2*(b*c-2*b)+2*(a*c-2*b-2*c);
 
 		$('surface').value = surface;
 	}
