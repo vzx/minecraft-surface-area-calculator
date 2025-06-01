@@ -54,7 +54,7 @@
 		var c = $('height').value;
 		var surface;
         	if (a <= 2 || b <= 2 || c <= 2) surface = a*b*c;
-		else surface = 2*a*b+2*(b*c-2*b)+2*(a*c-2*b-2*c);
+		else surface = (a*b*c)-((a-2)*(b-2)*(c-2));
 
 		$('surface').value = surface;
 	}
