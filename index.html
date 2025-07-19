@@ -24,9 +24,9 @@
 			<a href="http://www.math.com/tables/geometry/surfareas.htm#rec">http://www.math.com/tables/geometry/surfareas.htm#rec</a></p>
 
 		<p>However, in minecraft blocks can be part of two or three sides (in the case of a corner), which means that you need fewer blocks
-			to cover the surface of such a prism than the result this formula. The formula is: <code>2ab+2(bc-2b)+2(ac-2b-2c)</code>.<br>
-			You can derive this by taking the surface of each side, and subtracting the length of two sides, and the length and width of 2
-			other sides. Though beware that this does not work with sides of 1 or 2, in those cases it's just <code>a*b*c</code>.</p>
+			to cover the surface of such a prism than the result this formula. The formula is: <code>(L*W*H)-((L-2)*(W-2)*(H-2))</code>.<br>
+			You can derive this by taking the volume of the block then substracting the inner volume from the main volume.
+			Though beware that this does not work with sides of 1 or 2, in those cases it's just <code>L*W*H</code>.</p>
 
 		<p><img id="prism" src="prism-quad3_43153_md.gif" alt="prism" height="175"></p>
 
@@ -54,7 +54,7 @@
 		var c = $('height').value;
 		var surface;
         	if (a <= 2 || b <= 2 || c <= 2) surface = a*b*c;
-		else surface = 2*a*b+2*(b*c-2*b)+2*(a*c-2*b-2*c);
+		else surface = (a*b*c)-((a-2)*(b-2)*(c-2));
 
 		$('surface').value = surface;
 	}
